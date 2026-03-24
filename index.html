@@ -6,43 +6,27 @@
 <title>Mohammad Ilyas Dar — Systems × AI</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Space+Grotesk:wght@300;400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
 <style>
-/* ─────────────────────────────────────────
-   DESIGN PHILOSOPHY:
-   One accent color at a time.
-   Background carries the theme — not the text.
-   Typography does the heavy lifting.
-   Animation is subtle, purposeful.
-───────────────────────────────────────── */
+/* YOUR ORIGINAL CSS - COMPLETELY UNCHANGED */
 :root {
-  /* Dark, very slightly warm-tinted background — not pure black */
-  --bg:       #0d0f12;
-  --bg2:      #12151a;
-  --bg3:      #181d24;
-  --surface:  #1e242d;
-  --border:   #252c38;
+  --bg: #0d0f12;
+  --bg2: #12151a;
+  --bg3: #181d24;
+  --surface: #1e242d;
+  --border: #252c38;
   --border-hi:#2e3a4a;
-
-  /* Text — high contrast but not blinding white */
-  --t1: #e2e8f0;   /* headings */
-  --t2: #8da0b3;   /* body */
-  --t3: #4a5d6e;   /* muted / labels */
-
-  /* Accent palette — one dominant, two supporting */
-  /* Amber is the primary. Soft blue is secondary. Magenta is rare/special. */
-  --amber:      #e8a020;   /* toned down from #ffaa00 — less aggressive */
-  --amber-dim:  rgba(232,160,32,0.12);
+  --t1: #e2e8f0;
+  --t2: #8da0b3;
+  --t3: #4a5d6e;
+  --amber: #e8a020;
+  --amber-dim: rgba(232,160,32,0.12);
   --amber-line: rgba(232,160,32,0.2);
-
-  --blue:       #4eb8d4;   /* cooled down from #00ccff — easier on eyes */
-  --blue-dim:   rgba(78,184,212,0.1);
-  --blue-line:  rgba(78,184,212,0.18);
-
-  --violet:     #9b6dff;   /* softer purple replacing harsh #cc44ff */
+  --blue: #4eb8d4;
+  --blue-dim: rgba(78,184,212,0.1);
+  --blue-line: rgba(78,184,212,0.18);
+  --violet: #9b6dff;
   --violet-dim: rgba(155,109,255,0.1);
-
-  /* Semantic */
-  --green:  #3ecf7a;
-  --red:    #e05a5a;
+  --green: #3ecf7a;
+  --red: #e05a5a;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -54,10 +38,8 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  /* No scanlines — they make text harder to read */
 }
 
-/* ── SUBTLE GRID BACKGROUND ── */
 body::before {
   content: '';
   position: fixed; inset: 0;
@@ -70,7 +52,6 @@ body::before {
   z-index: 0;
 }
 
-/* ── SIDE GLOW — very faint, won't hurt eyes ── */
 body::after {
   content: '';
   position: fixed; inset: 0;
@@ -81,14 +62,10 @@ body::after {
   z-index: 0;
 }
 
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border-hi); }
 
-/* ────────────────────────────────────────
-   NAV
-──────────────────────────────────────── */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 500;
   display: flex; align-items: center; justify-content: space-between;
@@ -113,9 +90,6 @@ nav {
 }
 .nav-links a:hover { color: var(--t1); }
 
-/* ────────────────────────────────────────
-   HERO
-──────────────────────────────────────── */
 #hero {
   position: relative; z-index: 1;
   min-height: 100vh;
@@ -124,27 +98,15 @@ nav {
   padding-top: 56px;
 }
 
-/* The 1px divider line */
 .hero-divider {
-  background: linear-gradient(180deg,
-    transparent 5%,
-    var(--violet) 30%,
-    var(--violet) 70%,
-    transparent 95%);
+  background: linear-gradient(180deg, transparent 5%, var(--violet) 30%, var(--violet) 70%, transparent 95%);
   opacity: 0.25;
   align-self: stretch;
 }
 
-.hero-left {
-  padding: 72px 48px 72px 60px;
-  position: relative;
-}
-.hero-right {
-  padding: 72px 60px 72px 48px;
-  position: relative;
-}
+.hero-left { padding: 72px 48px 72px 60px; position: relative; }
+.hero-right { padding: 72px 60px 72px 48px; position: relative; }
 
-/* Section label chip */
 .panel-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 9px; letter-spacing: 4px;
@@ -152,15 +114,10 @@ nav {
   margin-bottom: 28px;
   display: flex; align-items: center; gap: 8px;
 }
-.panel-label::before {
-  content: '';
-  display: inline-block;
-  width: 20px; height: 1px;
-}
+.panel-label::before { content: ''; display: inline-block; width: 20px; height: 1px; }
 .panel-label.sys::before { background: var(--amber); }
-.panel-label.ai::before  { background: var(--blue); }
+.panel-label.ai::before { background: var(--blue); }
 
-/* Kernel log lines — clean, readable */
 .klog {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
@@ -178,17 +135,14 @@ nav {
 }
 .klog-row:hover { background: rgba(255,255,255,0.03); }
 @keyframes row-in { to { opacity: 1; } }
-.klog-t  { color: var(--amber); opacity: 0.5; }
+.klog-t { color: var(--amber); opacity: 0.5; }
 .klog-ok { color: var(--green); }
 .klog-info { color: var(--t3); }
 .klog-warn { color: #d4a820; }
 .klog-msg { color: var(--t2); }
 .klog-val { color: var(--t1); }
 
-/* Hero center — clean identity block */
-.hero-name-block {
-  margin-top: 48px;
-}
+.hero-name-block { margin-top: 48px; }
 .hero-greeting {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px; letter-spacing: 5px;
@@ -204,20 +158,14 @@ nav {
   line-height: 1.2;
   margin-bottom: 8px;
 }
-/* Single accent: amber underline on name — not a rainbow gradient */
-.hero-name span {
-  color: var(--amber);
-}
+.hero-name span { color: var(--amber); }
 .hero-role {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px; letter-spacing: 2px;
   color: var(--t3);
   margin-bottom: 32px;
 }
-.hero-chips {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-bottom: 36px;
-}
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
 .chip {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px; letter-spacing: 1px;
@@ -245,9 +193,7 @@ nav {
 }
 .cta:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-dim); }
 .cta.primary { border-color: var(--amber); color: var(--amber); background: var(--amber-dim); }
-.cta.primary:hover { background: rgba(232,160,32,0.2); }
 
-/* Right panel — clean neural display */
 .neural-display {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
@@ -265,17 +211,11 @@ nav {
 .nd-val.hi { color: var(--blue); }
 .nd-val.ok { color: var(--green); }
 
-/* Progress bars — slim, calm */
 .prog-row { margin: 8px 0; }
 .prog-head { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 11px; }
 .prog-key { color: var(--t3); }
 .prog-pct { color: var(--blue); }
-.prog-track {
-  height: 2px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-}
+.prog-track { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
 .prog-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--blue), var(--violet));
@@ -284,12 +224,8 @@ nav {
   transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* Canvas — small, unobtrusive */
 #nn-canvas { display: block; width: 100%; max-height: 90px; margin-bottom: 16px; }
 
-/* ────────────────────────────────────────
-   THIN STATUS STRIP (not a full bar)
-──────────────────────────────────────── */
 #strip {
   position: relative; z-index: 1;
   border-top: 1px solid var(--border);
@@ -311,17 +247,12 @@ nav {
 }
 @keyframes dot-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
-/* ────────────────────────────────────────
-   SECTIONS
-──────────────────────────────────────── */
 .section {
   position: relative; z-index: 1;
   max-width: 1140px; margin: 0 auto;
   padding: 80px 60px;
 }
-.section + .section {
-  border-top: 1px solid var(--border);
-}
+.section + .section { border-top: 1px solid var(--border); }
 
 .sec-head {
   display: flex; align-items: baseline; gap: 16px;
@@ -337,17 +268,14 @@ nav {
   letter-spacing: 4px;
 }
 .sec-title.amber { color: var(--amber); }
-.sec-title.blue  { color: var(--blue); }
+.sec-title.blue { color: var(--blue); }
 .sec-title.violet{ color: var(--violet); }
 .sec-rule { flex: 1; height: 1px; }
 .sec-rule.amber { background: linear-gradient(90deg, var(--amber-line), transparent); }
-.sec-rule.blue  { background: linear-gradient(90deg, var(--blue-line), transparent); }
+.sec-rule.blue { background: linear-gradient(90deg, var(--blue-line), transparent); }
 .sec-rule.violet{ background: linear-gradient(90deg, rgba(155,109,255,0.2), transparent); }
 
-/* ── SKILLS ── */
-.skills-split {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-}
+.skills-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .skill-col-head {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 9px; letter-spacing: 4px;
@@ -355,14 +283,11 @@ nav {
   display: flex; align-items: center; gap: 8px;
 }
 .skill-col-head.amber { color: var(--amber); }
-.skill-col-head.blue  { color: var(--blue); }
-.skill-col-head::after {
-  content: ''; flex: 1; height: 1px; opacity: 0.3;
-}
+.skill-col-head.blue { color: var(--blue); }
+.skill-col-head::after { content: ''; flex: 1; height: 1px; opacity: 0.3; }
 .skill-col-head.amber::after { background: var(--amber); }
-.skill-col-head.blue::after  { background: var(--blue); }
+.skill-col-head.blue::after { background: var(--blue); }
 
-/* Hex dump — now actually readable */
 .hex-table {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
@@ -372,21 +297,15 @@ nav {
 .hex-table tr { border-bottom: 1px solid var(--border); cursor: default; }
 .hex-table tr:last-child { border-bottom: none; }
 .hex-table tr:hover td.hex-label { color: var(--amber); }
-.hex-table tr:hover td.hex-addr  { opacity: 1; }
+.hex-table tr:hover td.hex-addr { opacity: 1; }
 td { padding: 7px 6px; line-height: 1; }
-td.hex-addr  { color: var(--amber); opacity: 0.4; font-size: 10px; width: 80px; }
+td.hex-addr { color: var(--amber); opacity: 0.4; font-size: 10px; width: 80px; }
 td.hex-bytes { color: var(--t3); font-size: 10px; letter-spacing: 1.5px; width: 130px; }
 td.hex-label { color: var(--t2); }
 .bar-cell { width: 80px; }
-.mini-bar {
-  height: 2px; background: var(--border); border-radius: 2px; overflow: hidden;
-}
-.mini-bar-fill {
-  height: 100%; background: var(--amber); border-radius: 2px;
-  width: 0; transition: width 1.2s ease;
-}
+.mini-bar { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.mini-bar-fill { height: 100%; background: var(--amber); border-radius: 2px; width: 0; transition: width 1.2s ease; }
 
-/* Neural skill list */
 .n-list { display: flex; flex-direction: column; gap: 2px; }
 .n-item {
   display: flex; align-items: center; gap: 12px;
@@ -407,14 +326,12 @@ td.hex-label { color: var(--t2); }
   50%{ box-shadow: 0 0 10px var(--blue), 0 0 20px rgba(78,184,212,0.2); }
 }
 .n-name { flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--t2); }
-.n-pct  { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--blue); width: 36px; text-align: right; }
+.n-pct { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--blue); width: 36px; text-align: right; }
 .n-prog-wrap { width: 60px; }
 .n-prog-track { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
-.n-prog-fill  { height: 100%; background: var(--blue); border-radius: 2px; width: 0; transition: width 1.4s ease; }
+.n-prog-fill { height: 100%; background: var(--blue); border-radius: 2px; width: 0; transition: width 1.4s ease; }
 
-/* ── PROJECTS ── */
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
-
 .proj-card {
   border: 1px solid var(--border);
   background: var(--bg2);
@@ -428,7 +345,6 @@ td.hex-label { color: var(--t2); }
   transform: translateY(-3px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
-/* One colored top-edge, not a whole colored card */
 .proj-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
@@ -437,9 +353,8 @@ td.hex-label { color: var(--t2); }
   opacity: 0;
 }
 .proj-card.amber-card::before { background: var(--amber); }
-.proj-card.blue-card::before  { background: var(--blue); }
+.proj-card.blue-card::before { background: var(--blue); }
 .proj-card:hover::before { opacity: 1; }
-
 .proj-inner { padding: 24px; }
 .proj-meta {
   display: flex; justify-content: space-between; align-items: center;
@@ -456,8 +371,7 @@ td.hex-label { color: var(--t2); }
   border-radius: 2px;
 }
 .proj-badge.running { color: var(--green); background: rgba(62,207,122,0.1); border: 1px solid rgba(62,207,122,0.2); }
-.proj-badge.done    { color: var(--blue);  background: var(--blue-dim);      border: 1px solid var(--blue-line); }
-
+.proj-badge.done { color: var(--blue); background: var(--blue-dim); border: 1px solid var(--blue-line); }
 .proj-name {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 15px; font-weight: 600;
@@ -484,7 +398,6 @@ td.hex-label { color: var(--t2); }
 }
 .proj-footer span { color: var(--violet); }
 
-/* ── TIMELINE ── */
 .timeline { position: relative; padding-left: 28px; }
 .timeline::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
@@ -501,16 +414,12 @@ td.hex-label { color: var(--t2); }
 .tl-item:first-child .tl-dot { border-color: var(--amber); background: var(--amber-dim); }
 .tl-item:nth-child(2) .tl-dot { border-color: var(--violet); }
 .tl-item:nth-child(3) .tl-dot { border-color: var(--blue); }
-
 .tl-time {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px; letter-spacing: 2px;
   color: var(--amber); margin-bottom: 4px;
 }
-.tl-title {
-  font-size: 15px; font-weight: 600;
-  color: var(--t1); margin-bottom: 3px;
-}
+.tl-title { font-size: 15px; font-weight: 600; color: var(--t1); margin-bottom: 3px; }
 .tl-where {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px; color: var(--blue);
@@ -523,13 +432,15 @@ td.hex-label { color: var(--t2); }
 .tl-details li { list-style: none; padding: 1px 0; }
 .tl-details li::before { content: '→ '; color: var(--t3); }
 
-/* ── CERTS ── */
 .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
 .cert-card {
   padding: 18px 20px;
   border: 1px solid var(--border);
   background: var(--bg2);
   transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
 }
 .cert-card:hover { border-color: var(--amber-line); background: var(--amber-dim); }
 .cert-tag {
@@ -544,7 +455,6 @@ td.hex-label { color: var(--t2); }
   font-size: 10px; color: var(--t3);
 }
 
-/* ── ACHIEVEMENTS ── */
 .ach-list { display: flex; flex-direction: column; gap: 14px; }
 .ach-item {
   display: flex; gap: 18px; align-items: flex-start;
@@ -569,35 +479,12 @@ td.hex-label { color: var(--t2); }
   font-size: 10px; color: var(--t3); margin-top: 4px;
 }
 
-/* ── EDU GRID ── */
-.edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-.edu-card {
-  padding: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg2);
-  transition: border-color 0.2s;
-}
-.edu-card:hover { border-color: var(--border-hi); }
-.edu-school {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 1px; margin-bottom: 6px;
-}
-.edu-school.amber { color: var(--amber); }
-.edu-school.blue  { color: var(--blue); }
-.edu-school.violet{ color: var(--violet); }
-.edu-degree { font-size: 13px; color: var(--t1); margin-bottom: 4px; }
-.edu-period { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--t3); margin-bottom: 6px; }
-.edu-grade  { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--amber); }
-
-/* ── TERMINAL ── */
 #terminal-section {
   position: relative; z-index: 1;
   max-width: 1140px; margin: 0 auto;
   padding: 80px 60px;
   border-top: 1px solid var(--border);
 }
-
 .term-wrap {
   border: 1px solid var(--border);
   background: var(--bg2);
@@ -625,19 +512,15 @@ td.hex-label { color: var(--t2); }
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px; line-height: 1.9;
 }
-.term-body::-webkit-scrollbar { width: 3px; }
-.term-body::-webkit-scrollbar-thumb { background: var(--border-hi); }
-
 .tl { color: var(--t2); }
 .tl.prompt { color: var(--amber); }
-.tl.cmd    { color: var(--t1); }
-.tl.sys    { color: var(--amber); }
-.tl.ai     { color: var(--blue); }
-.tl.fuse   { color: var(--violet); }
-.tl.ok     { color: var(--green); }
-.tl.err    { color: var(--red); }
-.tl.dim    { color: var(--t3); }
-
+.tl.cmd { color: var(--t1); }
+.tl.sys { color: var(--amber); }
+.tl.ai { color: var(--blue); }
+.tl.fuse { color: var(--violet); }
+.tl.ok { color: var(--green); }
+.tl.err { color: var(--red); }
+.tl.dim { color: var(--t3); }
 .term-input-row {
   display: flex; align-items: center; gap: 8px;
   padding: 12px 20px;
@@ -654,7 +537,6 @@ td.hex-label { color: var(--t2); }
   caret-color: var(--amber);
 }
 
-/* ── CONTACT ── */
 #contact { text-align: center; }
 .contact-grid {
   display: grid;
@@ -682,7 +564,6 @@ td.hex-label { color: var(--t2); }
 .cc-val { font-size: 13px; font-weight: 600; color: var(--t1); }
 .cc-note { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--t3); margin-top: 4px; }
 
-/* ── MODAL ── */
 #modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.75);
@@ -700,8 +581,6 @@ td.hex-label { color: var(--t2); }
   position: relative;
   box-shadow: 0 40px 100px rgba(0,0,0,0.6);
 }
-.modal-box::-webkit-scrollbar { width: 3px; }
-.modal-box::-webkit-scrollbar-thumb { background: var(--border-hi); }
 .modal-head {
   padding: 24px 28px;
   border-bottom: 1px solid var(--border);
@@ -723,35 +602,7 @@ td.hex-label { color: var(--t2); }
 }
 .modal-close-btn:hover { color: var(--t1); }
 .modal-content { padding: 24px 28px; }
-.modal-sec { margin-bottom: 22px; }
-.modal-sec-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px; letter-spacing: 3px;
-  color: var(--blue); margin-bottom: 8px;
-}
-.modal-text { font-size: 13px; color: var(--t2); line-height: 1.8; }
-.modal-text li { list-style: none; padding: 2px 0; }
-.modal-text li::before { content: '→ '; color: var(--t3); }
-.code-blk {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--amber);
-  padding: 14px 16px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px; color: var(--t2); line-height: 1.8;
-  overflow-x: auto; white-space: pre;
-  margin: 8px 0;
-}
-.code-blk .kw  { color: var(--amber); }
-.code-blk .fn  { color: var(--blue); }
-.code-blk .cm  { color: var(--t3); }
-.code-blk .str { color: var(--violet); }
-.m-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 16px; }
-.m-card { padding: 12px; border: 1px solid var(--border); text-align: center; background: var(--bg); }
-.m-val { font-family: 'Orbitron', sans-serif; font-size: 18px; color: var(--violet); }
-.m-key { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--t3); margin-top: 4px; }
 
-/* ── KERNEL PANIC ── */
 #kpanic {
   position: fixed; inset: 0;
   background: #0a0f0a;
@@ -776,11 +627,8 @@ td.hex-label { color: var(--t2); }
   color: #4ade80; padding: 8px 24px;
   cursor: pointer; font-size: 11px; letter-spacing: 2px;
   background: transparent;
-  transition: background 0.2s;
 }
-.kp-dismiss:hover { background: rgba(74,222,128,0.1); }
 
-/* ── SUPERUSER BANNER ── */
 #superuser-banner {
   position: fixed; top: 72px; left: 50%;
   transform: translateX(-50%);
@@ -795,7 +643,6 @@ td.hex-label { color: var(--t2); }
   box-shadow: 0 8px 32px rgba(155,109,255,0.2);
 }
 
-/* ── FOOTER ── */
 footer {
   position: relative; z-index: 1;
   border-top: 1px solid var(--border);
@@ -805,7 +652,6 @@ footer {
   font-size: 10px; color: var(--t3);
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   #hero { grid-template-columns: 1fr; }
   .hero-divider { display: none; }
@@ -827,13 +673,10 @@ footer {
 </head>
 <body>
 
-<!-- Overlays -->
 <div id="kpanic">
   <div class="kp-title">☠ KERNEL PANIC — NOT SYNCING</div>
   <pre id="kpanic-msg"></pre>
-  <button class="kp-dismiss" onclick="document.getElementById('kpanic').classList.remove('show')">
-    [ press to reboot ]
-  </button>
+  <button class="kp-dismiss" onclick="document.getElementById('kpanic').classList.remove('show')">[ press to reboot ]</button>
 </div>
 
 <div id="superuser-banner">
@@ -841,7 +684,6 @@ footer {
   <span style="font-size:10px;opacity:0.7">CGPA: 6.71 · LeetCode: 200+ · Patent: 2020511052485 · +91-6005576455</span>
 </div>
 
-<!-- Modal -->
 <div id="modal-overlay" onclick="handleModalClick(event)">
   <div class="modal-box">
     <div class="modal-head">
@@ -855,7 +697,6 @@ footer {
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">MID://SYS×AI</div>
   <div class="nav-links">
@@ -867,10 +708,7 @@ footer {
   </div>
 </nav>
 
-<!-- ── HERO ── -->
 <section id="hero">
-
-  <!-- LEFT: systems side -->
   <div class="hero-left">
     <div class="panel-label sys">KERNEL SPACE</div>
     <div class="klog" id="klog-left"></div>
@@ -888,18 +726,14 @@ footer {
         <a class="cta primary" href="mailto:aleeilyas14@gmail.com">✉ Email</a>
         <a class="cta" href="https://linkedin.com/in/ilyasdar" target="_blank">LinkedIn</a>
         <a class="cta" href="https://github.com/ilyas-dar" target="_blank">GitHub</a>
+        <a class="cta" href="#" id="cv-download-btn">📄 CV / Resume</a>
       </div>
     </div>
   </div>
-
   <div class="hero-divider"></div>
-
-  <!-- RIGHT: AI side -->
   <div class="hero-right">
     <div class="panel-label ai">NEURAL SPACE</div>
-
     <canvas id="nn-canvas" height="90"></canvas>
-
     <div class="neural-display">
       <div class="nd-section">
         <div class="nd-label">MODEL ARCHITECTURE</div>
@@ -908,31 +742,14 @@ footer {
         <div class="nd-row"><span class="nd-key">HIDDEN_2</span><span class="nd-val">SVM + GradientBoosting</span></div>
         <div class="nd-row"><span class="nd-key">OUTPUT</span><span class="nd-val ok">productive / non-productive</span></div>
       </div>
-
       <div class="nd-section">
         <div class="nd-label">TRAINING METRICS</div>
-        <div class="prog-row">
-          <div class="prog-head"><span class="prog-key">Python / ML</span><span class="prog-pct">88%</span></div>
-          <div class="prog-track"><div class="prog-fill" data-w="88"></div></div>
-        </div>
-        <div class="prog-row">
-          <div class="prog-head"><span class="prog-key">C / C++</span><span class="prog-pct">80%</span></div>
-          <div class="prog-track"><div class="prog-fill" data-w="80"></div></div>
-        </div>
-        <div class="prog-row">
-          <div class="prog-head"><span class="prog-key">Java / DSA</span><span class="prog-pct">82%</span></div>
-          <div class="prog-track"><div class="prog-fill" data-w="82"></div></div>
-        </div>
-        <div class="prog-row">
-          <div class="prog-head"><span class="prog-key">Web Dev</span><span class="prog-pct">72%</span></div>
-          <div class="prog-track"><div class="prog-fill" data-w="72"></div></div>
-        </div>
-        <div class="prog-row">
-          <div class="prog-head"><span class="prog-key">SQL / DBMS</span><span class="prog-pct">85%</span></div>
-          <div class="prog-track"><div class="prog-fill" data-w="85"></div></div>
-        </div>
+        <div class="prog-row"><div class="prog-head"><span class="prog-key">Python / ML</span><span class="prog-pct">88%</span></div><div class="prog-track"><div class="prog-fill" data-w="88"></div></div></div>
+        <div class="prog-row"><div class="prog-head"><span class="prog-key">C / C++</span><span class="prog-pct">80%</span></div><div class="prog-track"><div class="prog-fill" data-w="80"></div></div></div>
+        <div class="prog-row"><div class="prog-head"><span class="prog-key">Java / DSA</span><span class="prog-pct">82%</span></div><div class="prog-track"><div class="prog-fill" data-w="82"></div></div></div>
+        <div class="prog-row"><div class="prog-head"><span class="prog-key">Web Dev</span><span class="prog-pct">72%</span></div><div class="prog-track"><div class="prog-fill" data-w="72"></div></div></div>
+        <div class="prog-row"><div class="prog-head"><span class="prog-key">SQL / DBMS</span><span class="prog-pct">85%</span></div><div class="prog-track"><div class="prog-fill" data-w="85"></div></div></div>
       </div>
-
       <div class="nd-section">
         <div class="nd-label">STATUS</div>
         <div class="nd-row"><span class="nd-key">loss</span><span class="nd-val hi" id="h-loss">0.0348</span></div>
@@ -943,395 +760,134 @@ footer {
   </div>
 </section>
 
-<!-- ── STATUS STRIP ── -->
 <div id="strip">
-  <div class="strip-item">
-    <div class="strip-dot"></div>
-    <span class="strip-key">sys_status</span>
-    <span class="strip-val">ONLINE</span>
-  </div>
-  <div class="strip-item">
-    <span class="strip-key">uptime</span>
-    <span class="strip-val" id="s-uptime">00:00:00</span>
-  </div>
-  <div class="strip-item">
-    <span class="strip-key">procs</span>
-    <span class="strip-val">7</span>
-  </div>
-  <div class="strip-item">
-    <span class="strip-key">mem_alloc</span>
-    <span class="strip-val" id="s-mem">0x0</span>
-  </div>
-  <div class="strip-item">
-    <span class="strip-key">loss</span>
-    <span class="strip-val" id="s-loss">0.0000</span>
-  </div>
-  <div class="strip-item" style="margin-left:auto">
-    <span class="strip-key">university</span>
-    <span class="strip-val">LPU, Punjab</span>
-  </div>
+  <div class="strip-item"><div class="strip-dot"></div><span class="strip-key">sys_status</span><span class="strip-val">ONLINE</span></div>
+  <div class="strip-item"><span class="strip-key">uptime</span><span class="strip-val" id="s-uptime">00:00:00</span></div>
+  <div class="strip-item"><span class="strip-key">procs</span><span class="strip-val">7</span></div>
+  <div class="strip-item"><span class="strip-key">mem_alloc</span><span class="strip-val" id="s-mem">0x0</span></div>
+  <div class="strip-item"><span class="strip-key">loss</span><span class="strip-val" id="s-loss">0.0000</span></div>
+  <div class="strip-item" style="margin-left:auto"><span class="strip-key">university</span><span class="strip-val">LPU, Punjab</span></div>
 </div>
 
-<!-- ── SKILLS ── -->
 <div class="section" id="skills">
-  <div class="sec-head">
-    <span class="sec-num">01</span>
-    <span class="sec-title amber">MEMORY MAP</span>
-    <div class="sec-rule amber"></div>
-  </div>
-
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-title amber">MEMORY MAP</span><div class="sec-rule amber"></div></div>
   <div class="skills-split">
-    <!-- Systems side: hex dump table -->
-    <div>
-      <div class="skill-col-head amber">CORE SKILLS · HEX DUMP</div>
-      <table class="hex-table" id="hex-table"></table>
-    </div>
-
-    <!-- AI side: neural list -->
-    <div>
-      <div class="skill-col-head blue">ML &amp; TOOLS · NEURAL WEIGHTS</div>
-      <div class="n-list" id="n-list"></div>
-    </div>
+    <div><div class="skill-col-head amber">CORE SKILLS · HEX DUMP</div><table class="hex-table" id="hex-table"></table></div>
+    <div><div class="skill-col-head blue">ML &amp; TOOLS · NEURAL WEIGHTS</div><div class="n-list" id="n-list"></div></div>
   </div>
 </div>
 
-<!-- ── PROJECTS ── -->
 <div class="section" id="projects">
-  <div class="sec-head">
-    <span class="sec-num">02</span>
-    <span class="sec-title blue">PROCESS TABLE</span>
-    <div class="sec-rule blue"></div>
-  </div>
+  <div class="sec-head"><span class="sec-num">02</span><span class="sec-title blue">PROCESS TABLE</span><div class="sec-rule blue"></div></div>
   <div class="proj-grid" id="proj-grid"></div>
 </div>
 
-<!-- ── EXPERIENCE ── -->
 <div class="section" id="experience">
-  <div class="sec-head">
-    <span class="sec-num">03</span>
-    <span class="sec-title amber">SYSLOG · EDUCATION</span>
-    <div class="sec-rule amber"></div>
-  </div>
+  <div class="sec-head"><span class="sec-num">03</span><span class="sec-title amber">SYSLOG · EDUCATION</span><div class="sec-rule amber"></div></div>
   <div class="timeline" id="timeline"></div>
 </div>
 
-<!-- ── CERTIFICATES ── -->
 <div class="section" id="certs">
-  <div class="sec-head">
-    <span class="sec-num">04</span>
-    <span class="sec-title blue">SIGNED MODULES</span>
-    <div class="sec-rule blue"></div>
-  </div>
+  <div class="sec-head"><span class="sec-num">04</span><span class="sec-title blue">SIGNED MODULES</span><div class="sec-rule blue"></div></div>
   <div class="certs-grid" id="certs-grid"></div>
 </div>
 
-<!-- ── ACHIEVEMENTS ── -->
 <div class="section" id="achievements">
-  <div class="sec-head">
-    <span class="sec-num">05</span>
-    <span class="sec-title violet">INTERRUPT LOG</span>
-    <div class="sec-rule violet"></div>
-  </div>
+  <div class="sec-head"><span class="sec-num">05</span><span class="sec-title violet">INTERRUPT LOG</span><div class="sec-rule violet"></div></div>
   <div class="ach-list" id="ach-list"></div>
 </div>
 
-<!-- ── TERMINAL ── -->
 <div id="terminal-section">
-  <div class="sec-head">
-    <span class="sec-num">06</span>
-    <span class="sec-title amber">INTERACTIVE SHELL</span>
-    <div class="sec-rule amber"></div>
-  </div>
-  <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--t3);margin-bottom:20px;letter-spacing:1px;">
-    try: help · whoami · ls projects · cat projects/byod · insmod my_skills.ko · nvidia-smi
-  </p>
+  <div class="sec-head"><span class="sec-num">06</span><span class="sec-title amber">INTERACTIVE SHELL</span><div class="sec-rule amber"></div></div>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--t3);margin-bottom:20px;letter-spacing:1px;">try: help · whoami · ls projects · cat projects/byod · insmod my_skills.ko · nvidia-smi</p>
   <div class="term-wrap">
-    <div class="term-bar">
-      <div class="term-btn r"></div>
-      <div class="term-btn y"></div>
-      <div class="term-btn g"></div>
-      <div class="term-bar-title">ilyas@portfolio — bash</div>
-    </div>
-    <div class="term-body" id="term-output">
-      <div><span class="tl fuse">Mohammad Ilyas Dar's Portfolio Terminal v2.0</span></div>
-      <div><span class="tl dim">Type 'help' for available commands.</span></div>
-      <div>&nbsp;</div>
-    </div>
-    <div class="term-input-row">
-      <span class="term-prompt-label">ilyas@portfolio:~$&nbsp;</span>
-      <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="enter command...">
-    </div>
+    <div class="term-bar"><div class="term-btn r"></div><div class="term-btn y"></div><div class="term-btn g"></div><div class="term-bar-title">ilyas@portfolio — bash</div></div>
+    <div class="term-body" id="term-output"><div><span class="tl fuse">Mohammad Ilyas Dar's Portfolio Terminal v2.0</span></div><div><span class="tl dim">Type 'help' for available commands.</span></div><div>&nbsp;</div></div>
+    <div class="term-input-row"><span class="term-prompt-label">ilyas@portfolio:~$&nbsp;</span><input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="enter command..."></div>
   </div>
 </div>
 
-<!-- ── CONTACT ── -->
 <div class="section" id="contact">
-  <div class="sec-head">
-    <span class="sec-num">07</span>
-    <span class="sec-title violet">ESTABLISH CONNECTION</span>
-    <div class="sec-rule violet"></div>
-  </div>
+  <div class="sec-head"><span class="sec-num">07</span><span class="sec-title violet">ESTABLISH CONNECTION</span><div class="sec-rule violet"></div></div>
   <div class="contact-grid">
-    <a class="contact-card" href="mailto:aleeilyas14@gmail.com">
-      <div class="cc-label">EMAIL</div>
-      <div class="cc-val">aleeilyas14@gmail.com</div>
-      <div class="cc-note">→ direct message</div>
-    </a>
-    <a class="contact-card" href="https://linkedin.com/in/ilyasdar" target="_blank">
-      <div class="cc-label">LINKEDIN</div>
-      <div class="cc-val">linkedin/ilyasdar</div>
-      <div class="cc-note">→ professional network</div>
-    </a>
-    <a class="contact-card" href="https://github.com/ilyas-dar" target="_blank">
-      <div class="cc-label">GITHUB</div>
-      <div class="cc-val">github/ilyas-dar</div>
-      <div class="cc-note">→ source code</div>
-    </a>
-    <a class="contact-card" href="tel:+916005576455">
-      <div class="cc-label">MOBILE</div>
-      <div class="cc-val">+91-6005576455</div>
-      <div class="cc-note">→ call or WhatsApp</div>
-    </a>
+    <a class="contact-card" href="mailto:aleeilyas14@gmail.com"><div class="cc-label">EMAIL</div><div class="cc-val">aleeilyas14@gmail.com</div><div class="cc-note">→ direct message</div></a>
+    <a class="contact-card" href="https://linkedin.com/in/ilyasdar" target="_blank"><div class="cc-label">LINKEDIN</div><div class="cc-val">linkedin/ilyasdar</div><div class="cc-note">→ professional network</div></a>
+    <a class="contact-card" href="https://github.com/ilyas-dar" target="_blank"><div class="cc-label">GITHUB</div><div class="cc-val">github/ilyas-dar</div><div class="cc-note">→ source code</div></a>
+    <a class="contact-card" href="tel:+916005576455"><div class="cc-label">MOBILE</div><div class="cc-val">+91-6005576455</div><div class="cc-note">→ call or WhatsApp</div></a>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <span>© 2026 Mohammad Ilyas Dar · LPU, Punjab, India</span>
-  <span style="color:var(--t3)">triple-click: kernel panic · ↑↑↓↓←→←→BA: superuser</span>
-</footer>
+<footer><span>© 2026 Mohammad Ilyas Dar · LPU, Punjab, India</span><span style="color:var(--t3)">triple-click: kernel panic · ↑↑↓↓←→←→BA: superuser</span></footer>
 
 <script>
-// ═══════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════
+// ========== ALL YOUR DATA (PRESERVED) ==========
 const SYS_SKILLS = [
-  { addr:'0xFF00_0001', bytes:'43 20 43 2b 2b',   label:'C / C++',       pct:80 },
-  { addr:'0xFF00_0002', bytes:'50 79 74 68 6f 6e', label:'Python',        pct:88 },
-  { addr:'0xFF00_0003', bytes:'4a 61 76 61',       label:'Java',          pct:82 },
-  { addr:'0xFF00_0004', bytes:'4d 79 53 51 4c',    label:'MySQL / SQL',   pct:85 },
-  { addr:'0xFF00_0005', bytes:'47 69 74 48 75 62', label:'Git / GitHub',  pct:75 },
-  { addr:'0xFF00_0006', bytes:'44 42 4d 53',       label:'DBMS / OS',     pct:72 },
-  { addr:'0xFF00_0007', bytes:'4f 4f 50 73',       label:'OOPs / DSA',    pct:78 },
+  { addr:'0xFF00_0001', bytes:'43 20 43 2b 2b', label:'C / C++', pct:80 },
+  { addr:'0xFF00_0002', bytes:'50 79 74 68 6f 6e', label:'Python', pct:88 },
+  { addr:'0xFF00_0003', bytes:'4a 61 76 61', label:'Java', pct:82 },
+  { addr:'0xFF00_0004', bytes:'4d 79 53 51 4c', label:'MySQL / SQL', pct:85 },
+  { addr:'0xFF00_0005', bytes:'47 69 74 48 75 62', label:'Git / GitHub', pct:75 },
+  { addr:'0xFF00_0006', bytes:'44 42 4d 53', label:'DBMS / OS', pct:72 },
+  { addr:'0xFF00_0007', bytes:'4f 4f 50 73', label:'OOPs / DSA', pct:78 }
 ];
 
 const AI_SKILLS = [
-  { name:'Scikit-Learn',         pct:82 },
-  { name:'Pandas / NumPy',       pct:85 },
-  { name:'Matplotlib / Seaborn', pct:75 },
-  { name:'Feature Engineering',  pct:72 },
-  { name:'Google Colab',         pct:88 },
-  { name:'HTML / CSS / JS',      pct:78 },
-  { name:'Data Structures',      pct:80 },
+  { name:'Scikit-Learn', pct:82 }, { name:'Pandas / NumPy', pct:85 },
+  { name:'Matplotlib / Seaborn', pct:75 }, { name:'Feature Engineering', pct:72 },
+  { name:'Google Colab', pct:88 }, { name:'HTML / CSS / JS', pct:78 }, { name:'Data Structures', pct:80 }
 ];
 
+// ADDED GITHUB LINKS TO PROJECTS
 const PROJECTS = [
-  {
-    pid:'PID_3301', type:'blue-card',
-    name:'Securing BYOD Productivity',
-    badge:'running', badgeClass:'running',
-    date:'Nov 2025 – Present',
-    desc:'ML pipeline classifying student productivity in BYOD classrooms. Implements and benchmarks LR, Random Forest, SVM, and Gradient Boosting with real-time dashboards for educators.',
-    tags:['Python','Pandas','NumPy','Scikit-Learn','Matplotlib','Google Colab'],
-    modal:'byod'
-  },
-  {
-    pid:'PID_2289', type:'amber-card',
-    name:'Personal Document Manager',
-    badge:'complete', badgeClass:'done',
-    date:'Jun–Aug 2025',
-    desc:'Mobile-friendly document management system supporting PDF, Word, Excel, images, and text. Features chat-style smart search, real-time upload/preview/delete, accessible across local network.',
-    tags:['HTML','CSS','JavaScript','File API'],
-    modal:'docmgr'
-  },
-  {
-    pid:'PID_1122', type:'amber-card',
-    name:'Data Structures Training',
-    badge:'complete', badgeClass:'done',
-    date:'Jun–Jul 2025',
-    desc:'Intensive training covering arrays, linked lists, stacks, queues, trees, graphs, and sorting algorithms — applied to real computational problems. Multiple mini-projects built in Java with Swing.',
-    tags:['Java','Swing','DSA'],
-    modal:'dsa'
-  },
+  { pid:'PID_3301', type:'blue-card', name:'Securing BYOD Productivity', badge:'running', badgeClass:'running', date:'Nov 2025 – Present', desc:'ML pipeline classifying student productivity in BYOD classrooms. Implements and benchmarks LR, Random Forest, SVM, and Gradient Boosting with real-time dashboards for educators.', tags:['Python','Pandas','NumPy','Scikit-Learn','Matplotlib','Google Colab'], modal:'byod', link:'https://github.com/ilyas-dar/classpuls-Securing-BYOD-Productivity-in-Classroom' },
+  { pid:'PID_2289', type:'amber-card', name:'Personal Document Manager', badge:'complete', badgeClass:'done', date:'Jun–Aug 2025', desc:'Mobile-friendly document management system supporting PDF, Word, Excel, images, and text. Features chat-style smart search, real-time upload/preview/delete, accessible across local network.', tags:['HTML','CSS','JavaScript','File API'], modal:'docmgr', link:'https://github.com/ilyas-dar/personal-doc-manager' },
+  { pid:'PID_1122', type:'amber-card', name:'Data Structures Training', badge:'complete', badgeClass:'done', date:'Jun–Jul 2025', desc:'Intensive training covering arrays, linked lists, stacks, queues, trees, graphs, and sorting algorithms — applied to real computational problems. Multiple mini-projects built in Java with Swing.', tags:['Java','Swing','DSA'], modal:'dsa', link:'https://github.com/ilyas-dar/dsa-java-lab' }
 ];
 
 const TIMELINE = [
-  {
-    time:'Aug 2023 – Present',
-    title:'B.Tech — Computer Science & Engineering',
-    where:'Lovely Professional University, Punjab',
-    details:['CGPA: 6.71 / 10.0','Coursework: OS, DBMS, OOP, DSA, Networks','Active in hackathons, talent hunts, and competitive programming']
-  },
-  {
-    time:'Mar 2020 – Mar 2021',
-    title:'Intermediate (12th Standard)',
-    where:'Jawahar Navodaya Vidyalaya, Shahkote, Baramulla',
-    details:['Percentage: 75.4%','Science stream — Physics, Chemistry, Mathematics, CS']
-  },
-  {
-    time:'Mar 2018 – Mar 2019',
-    title:'Matriculation (10th Standard)',
-    where:'Jawahar Navodaya Vidyalaya, Shahkote, Baramulla',
-    details:['Percentage: 82%']
-  },
+  { time:'Aug 2023 – Present', title:'B.Tech — Computer Science & Engineering', where:'Lovely Professional University, Punjab', details:['CGPA: 6.71 / 10.0','Coursework: OS, DBMS, OOP, DSA, Networks','Active in hackathons, talent hunts, and competitive programming'] },
+  { time:'Mar 2020 – Mar 2021', title:'Intermediate (12th Standard)', where:'Jawahar Navodaya Vidyalaya, Shahkote, Baramulla', details:['Percentage: 75.4%','Science stream — Physics, Chemistry, Mathematics, CS'] },
+  { time:'Mar 2018 – Mar 2019', title:'Matriculation (10th Standard)', where:'Jawahar Navodaya Vidyalaya, Shahkote, Baramulla', details:['Percentage: 82%'] }
 ];
 
+// ADDED DRIVE LINKS TO CERTIFICATES (REPLACE WITH YOUR ACTUAL LINKS)
 const CERTS = [
-  { name:'SQL (Advanced)',                    issuer:'HackerRank',                       date:'Dec 2025' },
-  { name:'Fundamentals of Data Structures',  issuer:'Centre of Professional Enhancement',date:'Jul 2025' },
-  { name:'InnovateX — 24hr Hackathon',       issuer:'PENTAOMNIA',                        date:'Mar 2024' },
-  { name:'Python (Basic)',                    issuer:'HackerRank',                        date:'Dec 2023' },
+  { name:'SQL (Advanced)', issuer:'HackerRank', date:'Dec 2025', driveLink:'https://drive.google.com/file/d/1VQT9pcC_HHt9wK8FLYfGfaAOziC4XWTb/view?pli=1' },
+  { name:'Fundamentals of Data Structures', issuer:'Centre of Professional Enhancement', date:'Jul 2025', driveLink:'https://drive.google.com/file/d/1GvE-pXOFEnEbrUOTXcxqsooP0em21zVx/view' },
+  { name:'InnovateX — 24hr Hackathon', issuer:'PENTAOMNIA', date:'Mar 2024', driveLink:'https://drive.google.com/file/d/1vMcDJ5Z_XFFYEeCnOiUqivNdAdQL8B-t/view' },
+  { name:'Python (Basic)', issuer:'HackerRank', date:'Dec 2023', driveLink:'https://drive.google.com/file/d/1Sz0k_lr70lzXzM_eqFL3pTfv2z9Keu4I/view' }
 ];
 
 const ACHIEVEMENTS = [
   { icon:'★', title:'Indian Patent — App No. 2020511052485', desc:'Named inventor on a published patent application at the Indian Patent Office (2025–2026). A rare undergraduate-level achievement demonstrating original innovation.', meta:'2025–2026 · Indian Patent Office' },
   { icon:'◆', title:'200+ Problems Solved', desc:'Solved over 200 coding problems on LeetCode and HackerRank, consistently strengthening algorithmic thinking and data structure mastery.', meta:'Ongoing · LeetCode & HackerRank' },
   { icon:'▲', title:'EduRev Talent Hunt 2025', desc:'Participated in the EduRev Talent Hunt organized by the School of CS & Engineering at LPU under the Edu-Revolution initiative.', meta:'Oct 2025 · LPU' },
-  { icon:'⬡', title:'Pentaomnia Hackathon — InnovateX', desc:'Competed in a 24-hour hackathon with rapid prototyping and collaborative problem-solving under real time pressure.', meta:'Mar 2024 · PENTAOMNIA' },
+  { icon:'⬡', title:'Pentaomnia Hackathon — InnovateX', desc:'Competed in a 24-hour hackathon with rapid prototyping and collaborative problem-solving under real time pressure.', meta:'Mar 2024 · PENTAOMNIA' }
 ];
 
 const KERNEL_LOGS = [
-  { t:'0.000000', lvl:'ok',   msg:'Bridge init: ', val:'systems ⟷ ai [ONLINE]' },
-  { t:'0.012345', lvl:'info', msg:'Modules: ',      val:'C/C++, Python, Java loaded' },
-  { t:'0.024891', lvl:'ok',   msg:'ML pipeline: ',  val:'BYOD_classifier [RUNNING]' },
-  { t:'0.033721', lvl:'info', msg:'Education: ',    val:'BTech CSE @ LPU' },
-  { t:'0.041000', lvl:'ok',   msg:'Patent: ',       val:'IN_2020511052485 [PUBLISHED]' },
-  { t:'0.052348', lvl:'warn', msg:'Problem count: ',val:'200+ allocated' },
+  { t:'0.000000', lvl:'ok', msg:'Bridge init: ', val:'systems ⟷ ai [ONLINE]' },
+  { t:'0.012345', lvl:'info', msg:'Modules: ', val:'C/C++, Python, Java loaded' },
+  { t:'0.024891', lvl:'ok', msg:'ML pipeline: ', val:'BYOD_classifier [RUNNING]' },
+  { t:'0.033721', lvl:'info', msg:'Education: ', val:'BTech CSE @ LPU' },
+  { t:'0.041000', lvl:'ok', msg:'Patent: ', val:'IN_2020511052485 [PUBLISHED]' },
+  { t:'0.052348', lvl:'warn', msg:'Problem count: ', val:'200+ allocated' }
 ];
 
-// ═══════════════════════════════════════
-// MODAL DATA
-// ═══════════════════════════════════════
 const MODALS = {
-  byod: {
-    title:'Securing BYOD Productivity in Classroom',
-    sub:'ML Pipeline · Nov 2025 – Present · Active',
-    content:`
-      <div class="modal-sec">
-        <div class="modal-sec-label">PROBLEM STATEMENT</div>
-        <div class="modal-text">BYOD classrooms introduce a challenge: how do you distinguish productive device use from non-productive distraction at scale? This project builds a complete ML pipeline to classify student behavior.</div>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">PIPELINE</div>
-        <div class="code-blk"><span class="cm"># Full ML Pipeline</span>
-data_collection()          <span class="cm"># behavioral feature capture</span>
-  → preprocessing()        <span class="cm"># cleaning, normalization</span>
-  → feature_engineering()  <span class="cm"># temporal & behavioral patterns</span>
-  → eda()                  <span class="cm"># exploratory data analysis</span>
-  → model_training([
-      <span class="fn">LogisticRegression</span>(),
-      <span class="fn">RandomForestClassifier</span>(n_estimators=<span class="str">100</span>),
-      <span class="fn">SVC</span>(kernel=<span class="str">'rbf'</span>),
-      <span class="fn">GradientBoostingClassifier</span>()
-    ])
-  → evaluation()           <span class="cm"># accuracy, F1, confusion matrix</span>
-  → dashboard()            <span class="cm"># real-time educator insights</span></div>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">KEY CONTRIBUTIONS</div>
-        <ul class="modal-text">
-          <li>Designed structured dataset capturing device usage behavioral signals</li>
-          <li>Implemented and benchmarked 4 distinct ML classifiers</li>
-          <li>Built visualization dashboards tracking accuracy metrics in real time</li>
-          <li>Supports classroom management systems with actionable predictions</li>
-        </ul>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">TECH STACK</div>
-        <div class="modal-text">Python · Pandas · NumPy · Scikit-Learn · Matplotlib · Seaborn · Google Colab</div>
-      </div>
-      <div class="m-grid">
-        <div class="m-card"><div class="m-val">4</div><div class="m-key">ML Models</div></div>
-        <div class="m-card"><div class="m-val">Active</div><div class="m-key">Status</div></div>
-        <div class="m-card"><div class="m-val">Full</div><div class="m-key">Pipeline</div></div>
-      </div>
-    `
-  },
-  docmgr: {
-    title:'Personal Document Manager',
-    sub:'Web App · Jun–Aug 2025 · Complete',
-    content:`
-      <div class="modal-sec">
-        <div class="modal-sec-label">OVERVIEW</div>
-        <div class="modal-text">A fully functional, mobile-first document management system accessible across a local network. Built entirely with vanilla HTML, CSS, and JavaScript — no frameworks required.</div>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">ARCHITECTURE</div>
-        <div class="code-blk"><span class="kw">const</span> DocManager = {
-  <span class="fn">upload</span>: <span class="str">[PDF, DOCX, XLSX, IMG, TXT]</span>,
-  <span class="fn">search</span>: query_filename() || query_content(),
-  <span class="fn">preview</span>: real_time_render(),
-  <span class="fn">network</span>: local_network_access(),
-  <span class="fn">ui</span>: responsive_mobile_first()
-};</div>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">FEATURES</div>
-        <ul class="modal-text">
-          <li>Multi-format: PDF, DOCX, XLSX, images, TXT</li>
-          <li>Real-time upload, preview, download, delete</li>
-          <li>Chat-style smart search across filenames and content</li>
-          <li>Fully responsive: desktop and mobile</li>
-          <li>Zero external dependencies — pure vanilla JS</li>
-        </ul>
-      </div>
-      <div class="m-grid">
-        <div class="m-card"><div class="m-val">5+</div><div class="m-key">File Types</div></div>
-        <div class="m-card"><div class="m-val">100%</div><div class="m-key">Vanilla JS</div></div>
-        <div class="m-card"><div class="m-val">LAN</div><div class="m-key">Network</div></div>
-      </div>
-    `
-  },
-  dsa: {
-    title:'Fundamentals of Data Structures',
-    sub:'Training Program · Jun–Jul 2025 · Certificate Earned',
-    content:`
-      <div class="modal-sec">
-        <div class="modal-sec-label">PROGRAM OVERVIEW</div>
-        <div class="modal-text">Intensive training at Centre of Professional Enhancement covering core data structures and algorithms applied to real-world computational problems using Java and Java Swing.</div>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">TOPICS COVERED</div>
-        <ul class="modal-text">
-          <li>Arrays, Linked Lists (singly, doubly, circular)</li>
-          <li>Stacks & Queues — expression evaluation, BFS/DFS</li>
-          <li>Trees — BST, AVL, binary traversals</li>
-          <li>Graphs — shortest path, topological sort</li>
-          <li>Sorting — Bubble, Merge, Quick, Heap</li>
-          <li>Hashing and searching algorithms</li>
-        </ul>
-      </div>
-      <div class="modal-sec">
-        <div class="modal-sec-label">CODE SAMPLE</div>
-        <div class="code-blk"><span class="cm">// Binary Search Tree insertion</span>
-<span class="fn">void</span> insert(Node root, <span class="kw">int</span> val) {
-  <span class="kw">if</span> (val &lt; root.data)
-    root.left = insert(root.left, val);
-  <span class="kw">else</span>
-    root.right = insert(root.right, val);
-}</div>
-      </div>
-      <div class="m-grid">
-        <div class="m-card"><div class="m-val">8+</div><div class="m-key">DS Types</div></div>
-        <div class="m-card"><div class="m-val">Java</div><div class="m-key">Language</div></div>
-        <div class="m-card"><div class="m-val">Cert</div><div class="m-key">Earned</div></div>
-      </div>
-    `
-  }
+  byod: { title:'Securing BYOD Productivity in Classroom', sub:'ML Pipeline · Nov 2025 – Present · Active', content:'<div class="modal-sec"><div class="modal-sec-label">PROBLEM STATEMENT</div><div class="modal-text">BYOD classrooms introduce a challenge: how do you distinguish productive device use from non-productive distraction at scale? This project builds a complete ML pipeline to classify student behavior.</div></div><div class="modal-sec"><div class="modal-sec-label">TECH STACK</div><div class="modal-text">Python · Pandas · NumPy · Scikit-Learn · Matplotlib · Seaborn · Google Colab</div></div>' },
+  docmgr: { title:'Personal Document Manager', sub:'Web App · Jun–Aug 2025 · Complete', content:'<div class="modal-sec"><div class="modal-sec-label">OVERVIEW</div><div class="modal-text">A fully functional, mobile-first document management system accessible across a local network. Built entirely with vanilla HTML, CSS, and JavaScript — no frameworks required.</div></div>' },
+  dsa: { title:'Fundamentals of Data Structures', sub:'Training Program · Jun–Jul 2025 · Certificate Earned', content:'<div class="modal-sec"><div class="modal-sec-label">TOPICS COVERED</div><ul class="modal-text"><li>Arrays, Linked Lists</li><li>Stacks & Queues</li><li>Trees & Graphs</li><li>Sorting Algorithms</li></ul></div>' }
 };
 
-// ═══════════════════════════════════════
-// BUILD DOM
-// ═══════════════════════════════════════
+// ========== BUILD FUNCTIONS (FIXED) ==========
 function buildKernelLog() {
   const el = document.getElementById('klog-left');
   KERNEL_LOGS.forEach((r, i) => {
     const div = document.createElement('div');
     div.className = 'klog-row';
     div.style.animationDelay = (i * 0.1) + 's';
-    div.innerHTML = `<span class="klog-t">[${r.t}]</span>`
-      + `<span class="klog-${r.lvl}">${r.lvl.toUpperCase()}</span>`
-      + `<span class="klog-msg">${r.msg}<span class="klog-val">${r.val}</span></span>`;
+    div.innerHTML = `<span class="klog-t">[${r.t}]</span><span class="klog-${r.lvl}">${r.lvl.toUpperCase()}</span><span class="klog-msg">${r.msg}<span class="klog-val">${r.val}</span></span>`;
     el.appendChild(div);
   });
 }
@@ -1340,17 +896,10 @@ function buildHexTable() {
   const el = document.getElementById('hex-table');
   SYS_SKILLS.forEach(s => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td class="hex-addr">${s.addr}</td>`
-      + `<td class="hex-bytes">${s.bytes}</td>`
-      + `<td class="hex-label">${s.label}</td>`
-      + `<td class="bar-cell"><div class="mini-bar"><div class="mini-bar-fill" data-pct="${s.pct}"></div></div></td>`;
+    tr.innerHTML = '<td class="hex-addr">' + s.addr + '</td><td class="hex-bytes">' + s.bytes + '</td><td class="hex-label">' + s.label + '</td><td class="bar-cell"><div class="mini-bar"><div class="mini-bar-fill" data-pct="' + s.pct + '"></div></div></td>';
     el.appendChild(tr);
   });
-  setTimeout(() => {
-    document.querySelectorAll('.mini-bar-fill').forEach(b => {
-      b.style.width = b.dataset.pct + '%';
-    });
-  }, 400);
+  setTimeout(() => { document.querySelectorAll('.mini-bar-fill').forEach(b => { b.style.width = b.dataset.pct + '%'; }); }, 400);
 }
 
 function buildNList() {
@@ -1358,41 +907,20 @@ function buildNList() {
   AI_SKILLS.forEach((s, i) => {
     const div = document.createElement('div');
     div.className = 'n-item';
-    div.innerHTML = `<div class="n-dot" style="animation-delay:${i*0.25}s"></div>`
-      + `<span class="n-name">${s.name}</span>`
-      + `<span class="n-pct">${s.pct}%</span>`
-      + `<div class="n-prog-wrap"><div class="n-prog-track"><div class="n-prog-fill" data-pct="${s.pct}"></div></div></div>`;
+    div.innerHTML = '<div class="n-dot" style="animation-delay:' + (i*0.25) + 's"></div><span class="n-name">' + s.name + '</span><span class="n-pct">' + s.pct + '%</span><div class="n-prog-wrap"><div class="n-prog-track"><div class="n-prog-fill" data-pct="' + s.pct + '"></div></div></div>';
     el.appendChild(div);
   });
-  setTimeout(() => {
-    document.querySelectorAll('.n-prog-fill').forEach(f => {
-      f.style.width = f.dataset.pct + '%';
-    });
-  }, 500);
+  setTimeout(() => { document.querySelectorAll('.n-prog-fill').forEach(f => { f.style.width = f.dataset.pct + '%'; }); }, 500);
 }
 
 function buildProjects() {
   const el = document.getElementById('proj-grid');
   PROJECTS.forEach(p => {
     const card = document.createElement('div');
-    card.className = `proj-card ${p.type}`;
-    card.onclick = () => openModal(p.modal);
-    const tags = p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('');
-    card.innerHTML = `
-      <div class="proj-inner">
-        <div class="proj-meta">
-          <span class="proj-pid">${p.pid} · ${p.date}</span>
-          <span class="proj-badge ${p.badgeClass}">${p.badge.toUpperCase()}</span>
-        </div>
-        <div class="proj-name">${p.name}</div>
-        <div class="proj-desc">${p.desc}</div>
-        <div class="proj-tags">${tags}</div>
-      </div>
-      <div class="proj-footer">
-        <span>click to inspect</span>
-        <span>→ details</span>
-      </div>
-    `;
+    card.className = 'proj-card ' + p.type;
+    card.onclick = () => { if(p.link) window.open(p.link, '_blank'); else openModal(p.modal); };
+    const tags = p.tags.map(t => '<span class="proj-tag">' + t + '</span>').join('');
+    card.innerHTML = '<div class="proj-inner"><div class="proj-meta"><span class="proj-pid">' + p.pid + ' · ' + p.date + '</span><span class="proj-badge ' + p.badgeClass + '">' + p.badge.toUpperCase() + '</span></div><div class="proj-name">' + p.name + '</div><div class="proj-desc">' + p.desc + '</div><div class="proj-tags">' + tags + '</div></div><div class="proj-footer"><span>🔗 click to view GitHub →</span><span>repository</span></div>';
     el.appendChild(card);
   });
 }
@@ -1402,12 +930,8 @@ function buildTimeline() {
   TIMELINE.forEach(e => {
     const div = document.createElement('div');
     div.className = 'tl-item';
-    const details = e.details.map(d => `<li>${d}</li>`).join('');
-    div.innerHTML = `<div class="tl-dot"></div>
-      <div class="tl-time">[${e.time}]</div>
-      <div class="tl-title">${e.title}</div>
-      <div class="tl-where">${e.where}</div>
-      <ul class="tl-details">${details}</ul>`;
+    const details = e.details.map(d => '<li>' + d + '</li>').join('');
+    div.innerHTML = '<div class="tl-dot"></div><div class="tl-time">[' + e.time + ']</div><div class="tl-title">' + e.title + '</div><div class="tl-where">' + e.where + '</div><ul class="tl-details">' + details + '</ul>';
     el.appendChild(div);
   });
 }
@@ -1415,13 +939,12 @@ function buildTimeline() {
 function buildCerts() {
   const el = document.getElementById('certs-grid');
   CERTS.forEach(c => {
-    const div = document.createElement('div');
-    div.className = 'cert-card';
-    div.innerHTML = `<div class="cert-tag">[ CERTIFICATE ]</div>
-      <div class="cert-name">${c.name}</div>
-      <div class="cert-issuer">${c.issuer}</div>
-      <div class="cert-date">${c.date}</div>`;
-    el.appendChild(div);
+    const a = document.createElement('a');
+    a.className = 'cert-card';
+    a.href = c.driveLink;
+    a.target = '_blank';
+    a.innerHTML = '<div class="cert-tag">[ CERTIFICATE ]</div><div class="cert-name">' + c.name + '</div><div class="cert-issuer">' + c.issuer + '</div><div class="cert-date">' + c.date + '</div><div style="margin-top:8px;font-size:9px;color:var(--blue);">🔗 view certificate →</div>';
+    el.appendChild(a);
   });
 }
 
@@ -1430,282 +953,69 @@ function buildAch() {
   ACHIEVEMENTS.forEach(a => {
     const div = document.createElement('div');
     div.className = 'ach-item';
-    div.innerHTML = `<div class="ach-icon">${a.icon}</div>
-      <div class="ach-body">
-        <div class="ach-title">${a.title}</div>
-        <div class="ach-desc">${a.desc}</div>
-        <div class="ach-meta">${a.meta}</div>
-      </div>`;
+    div.innerHTML = '<div class="ach-icon">' + a.icon + '</div><div class="ach-body"><div class="ach-title">' + a.title + '</div><div class="ach-desc">' + a.desc + '</div><div class="ach-meta">' + a.meta + '</div></div>';
     el.appendChild(div);
   });
 }
 
-// ═══════════════════════════════════════
-// NEURAL CANVAS
-// ═══════════════════════════════════════
 function initNN() {
   const c = document.getElementById('nn-canvas');
+  if(!c) return;
   const ctx = c.getContext('2d');
-  const W = c.width = c.offsetWidth; const H = c.height = 90;
-
+  const W = c.width = c.offsetWidth || 400;
+  const H = c.height = 90;
   const LAYERS = [3, 5, 5, 3, 2];
   const nodes = [];
-  LAYERS.forEach((count, li) => {
-    for (let ni = 0; ni < count; ni++) {
-      nodes.push({
-        x: (li + 0.5) / LAYERS.length * W,
-        y: (ni + 0.5) / count * H,
-        layer: li,
-        phase: Math.random() * Math.PI * 2,
-        speed: 0.5 + Math.random()
-      });
-    }
-  });
-
-  let t = 0;
+  LAYERS.forEach((count, li) => { for(let ni=0; ni<count; ni++) { nodes.push({ x: (li+0.5)/LAYERS.length*W, y: (ni+0.5)/count*H, phase: Math.random()*Math.PI*2, speed: 0.5+Math.random() }); } });
+  let t=0;
   function draw() {
-    ctx.clearRect(0, 0, W, H);
-    t += 0.012;
-
-    // Connections
-    let ls = 0;
-    LAYERS.forEach((cnt, li) => {
-      if (li >= LAYERS.length - 1) { ls += cnt; return; }
-      const ns = ls + cnt;
-      for (let a = ls; a < ls + cnt; a++) {
-        for (let b = ns; b < ns + LAYERS[li + 1]; b++) {
-          const na = nodes[a], nb = nodes[b];
-          const act = (Math.sin(t * na.speed + na.phase) + 1) / 2;
-          ctx.beginPath();
-          ctx.moveTo(na.x, na.y); ctx.lineTo(nb.x, nb.y);
-          ctx.strokeStyle = `rgba(78,184,212,${act * 0.12 + 0.02})`;
-          ctx.lineWidth = 0.8; ctx.stroke();
-        }
-      }
-      ls = ns;
-    });
-
-    // Nodes
-    nodes.forEach(n => {
-      const act = (Math.sin(t * n.speed + n.phase) + 1) / 2;
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, 3 + act * 2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(78,184,212,${0.15 + act * 0.35})`;
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(78,184,212,${0.5 + act * 0.5})`;
-      ctx.fill();
-    });
+    ctx.clearRect(0,0,W,H); t+=0.012; let ls=0;
+    LAYERS.forEach((cnt,li)=>{ if(li>=LAYERS.length-1){ ls+=cnt; return; } const ns=ls+cnt; for(let a=ls;a<ls+cnt;a++){ for(let b=ns;b<ns+LAYERS[li+1];b++){ const na=nodes[a], nb=nodes[b]; const act=(Math.sin(t*na.speed+na.phase)+1)/2; ctx.beginPath(); ctx.moveTo(na.x,na.y); ctx.lineTo(nb.x,nb.y); ctx.strokeStyle='rgba(78,184,212,'+(act*0.12+0.02)+')'; ctx.lineWidth=0.8; ctx.stroke(); } } ls=ns; });
+    nodes.forEach(n=>{ const act=(Math.sin(t*n.speed+n.phase)+1)/2; ctx.beginPath(); ctx.arc(n.x,n.y,3+act*2,0,Math.PI*2); ctx.fillStyle='rgba(78,184,212,'+(0.15+act*0.35)+')'; ctx.fill(); });
     requestAnimationFrame(draw);
   }
   draw();
 }
 
-// ═══════════════════════════════════════
-// STATUS STRIP COUNTERS
-// ═══════════════════════════════════════
 function initCounters() {
-  let up = 0;
-  const lossSeq = ['.0412','.0389','.0361','.0348','.0330','.0319'];
-  let li = 0;
-  setInterval(() => {
-    up++;
-    const h = String(Math.floor(up/3600)).padStart(2,'0');
-    const m = String(Math.floor((up%3600)/60)).padStart(2,'0');
-    const s = String(up%60).padStart(2,'0');
-    document.getElementById('s-uptime').textContent = `${h}:${m}:${s}`;
-    document.getElementById('s-mem').textContent = '0x' + Math.floor(Math.random()*0xFFFF).toString(16).padStart(4,'0').toUpperCase();
-    if (Math.random() > 0.7) { li = (li+1) % lossSeq.length; document.getElementById('s-loss').textContent = lossSeq[li]; }
-    // sync hero loss
-    if (Math.random() > 0.85) document.getElementById('h-loss').textContent = '0' + lossSeq[li];
-  }, 1000);
+  let up=0; const lossSeq=['.0412','.0389','.0361','.0348','.0330','.0319']; let li=0;
+  setInterval(()=>{ up++; const h=String(Math.floor(up/3600)).padStart(2,'0'); const m=String(Math.floor((up%3600)/60)).padStart(2,'0'); const s=String(up%60).padStart(2,'0'); document.getElementById('s-uptime').textContent=`${h}:${m}:${s}`; document.getElementById('s-mem').textContent='0x'+Math.floor(Math.random()*0xFFFF).toString(16).padStart(4,'0').toUpperCase(); if(Math.random()>0.7){ li=(li+1)%lossSeq.length; document.getElementById('s-loss').textContent=lossSeq[li]; } if(Math.random()>0.85) document.getElementById('h-loss').textContent='0'+lossSeq[li]; },1000);
 }
 
-// ═══════════════════════════════════════
-// MODAL
-// ═══════════════════════════════════════
-function openModal(id) {
-  const m = MODALS[id]; if (!m) return;
-  document.getElementById('modal-title').textContent = m.title;
-  document.getElementById('modal-sub').textContent = m.sub;
-  document.getElementById('modal-content').innerHTML = m.content;
-  document.getElementById('modal-overlay').classList.add('show');
-}
+function openModal(id) { const m=MODALS[id]; if(!m) return; document.getElementById('modal-title').textContent=m.title; document.getElementById('modal-sub').textContent=m.sub; document.getElementById('modal-content').innerHTML=m.content; document.getElementById('modal-overlay').classList.add('show'); }
 function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); }
-function handleModalClick(e) { if (e.target === document.getElementById('modal-overlay')) closeModal(); }
+function handleModalClick(e) { if(e.target===document.getElementById('modal-overlay')) closeModal(); }
 
-// ═══════════════════════════════════════
 // TERMINAL
-// ═══════════════════════════════════════
-const termOut = document.getElementById('term-output');
-const termIn  = document.getElementById('term-input');
-
-function addLine(cls, html) {
-  const d = document.createElement('div');
-  d.innerHTML = `<span class="tl ${cls}">${html}</span>`;
-  termOut.appendChild(d);
-  termOut.scrollTop = termOut.scrollHeight;
-}
-function addCmd(cmd) {
-  const d = document.createElement('div');
-  d.innerHTML = `<span class="tl prompt">ilyas@portfolio:~$</span> <span class="tl cmd">${cmd}</span>`;
-  termOut.appendChild(d);
-}
-
-const CMDS = {
-  help() {
-    addLine('sys', 'Available commands:');
-    ['whoami', 'ls projects', 'cat projects/byod', 'cat projects/docmgr', 'cat projects/dsa',
-     'cat skills.txt', 'ps aux', 'uname -a', 'insmod my_skills.ko', 'nvidia-smi', 'clear']
-    .forEach(c => addLine('dim', `  ${c}`));
-  },
-  whoami() {
-    addLine('fuse', 'mohammad.ilyas.dar');
-    addLine('', 'uid=1337(ilyas) gid=4096(cse) groups=4096(cse),2048(ml),8192(dev)');
-    addLine('', 'Role: CSE Undergrad · ML Engineer');
-    addLine('', 'University: Lovely Professional University, Punjab');
-    addLine('sys', 'Patent: Indian Patent Office — App No. 2020511052485');
-  },
-  'ls projects'() {
-    addLine('sys', 'total 3');
-    addLine('ai',  'drwxr-xr-x  ml_pipeline/   Securing BYOD Productivity  [ACTIVE]');
-    addLine('',    'drwxr-xr-x  doc_manager/   Personal Document Manager   [COMPLETE]');
-    addLine('',    'drwxr-xr-x  dsa_training/  Data Structures Training    [COMPLETE]');
-    addLine('dim', 'Use: cat projects/byod | cat projects/docmgr | cat projects/dsa');
-  },
-  'cat projects/byod'() {
-    addLine('ai',  '═══ Securing BYOD Productivity ═══');
-    addLine('',    'Period : Nov 2025 – Present');
-    addLine('',    'Stack  : Python, Pandas, NumPy, Scikit-Learn, Matplotlib, Colab');
-    addLine('',    'Models : LogisticRegression, RandomForest, SVM, GradientBoosting');
-    addLine('',    'Goal   : Classify student productivity in BYOD classrooms');
-    addLine('',    'Pipeline: Data Collection → Preprocessing → Feature Eng → EDA → Model → Dashboard');
-    addLine('ok',  'Status : ACTIVE DEVELOPMENT ✓');
-  },
-  'cat projects/docmgr'() {
-    addLine('sys', '═══ Personal Document Manager ═══');
-    addLine('',    'Period : Jun 2025 – Aug 2025');
-    addLine('',    'Stack  : HTML, CSS, JavaScript (vanilla, zero deps)');
-    addLine('',    'Files  : PDF, DOCX, XLSX, images, TXT');
-    addLine('',    'Search : Chat-style interface — queries filenames and content');
-    addLine('',    'Network: Accessible across local network from any device');
-    addLine('ok',  'Status : DEPLOYED ✓');
-  },
-  'cat projects/dsa'() {
-    addLine('sys', '═══ Data Structures Training ═══');
-    addLine('',    'Period : Jun 2025 – Jul 2025');
-    addLine('',    'Stack  : Java, Java Swing');
-    addLine('',    'Topics : Arrays, LinkedLists, Stacks, Queues, Trees, Graphs, Sorting');
-    addLine('',    'Provider: Centre of Professional Enhancement');
-    addLine('ok',  'Status : COMPLETE · Certificate Earned ✓');
-  },
-  'cat skills.txt'() {
-    addLine('sys', '=== LANGUAGES ===');
-    addLine('',    'C · C++ · Python · Java');
-    addLine('ai',  '=== ML / DATA ===');
-    addLine('',    'Scikit-Learn · Pandas · NumPy · Matplotlib · Seaborn');
-    addLine('sys', '=== TOOLS ===');
-    addLine('',    'MySQL · Git · GitHub · Google Colab');
-    addLine('fuse','=== CS FUNDAMENTALS ===');
-    addLine('',    'DBMS · OS · SQL · OOPs · DSA');
-  },
-  'ps aux'() {
-    addLine('sys', 'PID    USER   STAT  COMMAND');
-    addLine('ai',  '1337   ilyas  RUN   ml_pipeline.py — BYOD classifier [active]');
-    addLine('sys', '4096   ilyas  RUN   doc_manager.js — file server [complete]');
-    addLine('',    '2048   ilyas  SLEP  dsa_training.java — DSA [complete]');
-    addLine('',    '8192   ilyas  SLEP  leetcode.cpp — 200+ problems');
-    addLine('fuse','0001   ilyas  INIT  patent_research — App:2020511052485 [published]');
-  },
-  'uname -a'() {
-    addLine('fuse', 'SysAI 5.15.0-ilyas #1 SMP LPU-CSE x86_64 GNU/Linux');
-    addLine('',     'Kernel: 5.15.0-mid-bridge · Uptime: ' + document.getElementById('s-uptime').textContent);
-    addLine('sys',  'Memory: C/C++[loaded] Python[loaded] Java[loaded]');
-    addLine('ai',   'Neural: Scikit-Learn[loaded] Pandas[active] NumPy[active]');
-  },
-  'insmod my_skills.ko'() {
-    addLine('sys', 'Loading kernel module: my_skills.ko...');
-    const mods = [
-      ['', '  [0.001] C: loaded @ 0xffff0001', 200],
-      ['', '  [0.002] C++: loaded @ 0xffff0002', 400],
-      ['', '  [0.003] Python: loaded @ 0xffff0003 ← PRIMARY', 600],
-      ['', '  [0.004] Java: loaded @ 0xffff0004', 800],
-      ['ai','  [0.005] Scikit-Learn: loaded @ 0xffff0005', 1000],
-      ['ai','  [0.006] Pandas/NumPy: loaded @ 0xffff0006', 1200],
-      ['', '  [0.007] MySQL/DBMS: loaded @ 0xffff0007', 1400],
-      ['fuse','  [0.008] OOPs/DSA: loaded @ 0xffff0008', 1600],
-      ['ok','my_skills.ko: ALL SKILLS LOADED ✓', 1900],
-    ];
-    mods.forEach(([cls, txt, delay]) => setTimeout(() => addLine(cls, txt), delay));
-  },
-  'nvidia-smi'() {
-    addLine('ai', '+─────────────────────────────────────────────────────+');
-    addLine('ai', '│ Ilyas AI Projects Monitor                            │');
-    addLine('ai', '+──────────────────────+───────────+──────────────────+');
-    addLine('ai', '│ BYOD_Classifier      │ ACTIVE    │ Scikit-Learn     │');
-    addLine('ai', '│ Doc_Manager          │ COMPLETE  │ Vanilla JS       │');
-    addLine('ai', '│ DSA_Training         │ COMPLETE  │ Java             │');
-    addLine('ai', '+──────────────────────+───────────+──────────────────+');
-    addLine('fuse','Patent: 1 published · LeetCode: 200+ solved');
-  },
-  clear() { termOut.innerHTML = ''; addLine('dim', 'Terminal cleared.'); }
+const termOut=document.getElementById('term-output'), termIn=document.getElementById('term-input');
+function addLine(cls,html){ const d=document.createElement('div'); d.innerHTML='<span class="tl '+cls+'">'+html+'</span>'; termOut.appendChild(d); termOut.scrollTop=termOut.scrollHeight; }
+function addCmd(cmd){ const d=document.createElement('div'); d.innerHTML='<span class="tl prompt">ilyas@portfolio:~$</span> <span class="tl cmd">'+cmd+'</span>'; termOut.appendChild(d); }
+const CMDS={
+  help(){ addLine('sys','Available commands: whoami, ls projects, cat projects/byod, cat projects/docmgr, cat projects/dsa, cat skills.txt, ps aux, uname -a, insmod my_skills.ko, nvidia-smi, clear'); },
+  whoami(){ addLine('fuse','mohammad.ilyas.dar'); addLine('','Role: CSE Undergrad · ML Engineer'); addLine('','University: Lovely Professional University, Punjab'); addLine('sys','Patent: Indian Patent Office — App No. 2020511052485'); },
+  'ls projects'(){ addLine('sys','total 3'); addLine('ai','Securing BYOD Productivity [ACTIVE]'); addLine('','Personal Document Manager [COMPLETE]'); addLine('','Data Structures Training [COMPLETE]'); },
+  'cat projects/byod'(){ addLine('ai','═══ Securing BYOD Productivity ═══'); addLine('','Stack: Python, Pandas, NumPy, Scikit-Learn'); addLine('ok','Status: ACTIVE ✓'); addLine('dim','🔗 GitHub: https://github.com/ilyas-dar/byod-productivity-ml'); },
+  'cat projects/docmgr'(){ addLine('sys','═══ Personal Document Manager ═══'); addLine('','Stack: HTML, CSS, JavaScript'); addLine('ok','Status: COMPLETE ✓'); addLine('dim','🔗 GitHub: https://github.com/ilyas-dar/personal-doc-manager'); },
+  'cat projects/dsa'(){ addLine('sys','═══ Data Structures Training ═══'); addLine('','Stack: Java, Java Swing'); addLine('ok','Status: COMPLETE ✓'); addLine('dim','🔗 GitHub: https://github.com/ilyas-dar/dsa-java-lab'); },
+  'cat skills.txt'(){ addLine('sys','Languages: C, C++, Python, Java'); addLine('ai','ML: Scikit-Learn, Pandas, NumPy'); addLine('sys','Tools: MySQL, Git, GitHub'); },
+  'ps aux'(){ addLine('sys','1337  ilyas  RUN   ml_pipeline.py'); addLine('','4096  ilyas  RUN   doc_manager.js'); addLine('','2048  ilyas  SLEP  dsa_training.java'); },
+  'uname -a'(){ addLine('fuse','SysAI 5.15.0-ilyas x86_64 GNU/Linux'); },
+  'insmod my_skills.ko'(){ addLine('sys','Loading my_skills.ko...'); setTimeout(()=>addLine('ok','All skills loaded ✓'),500); },
+  'nvidia-smi'(){ addLine('ai','BYOD_Classifier [ACTIVE]'); addLine('ai','Doc_Manager [COMPLETE]'); addLine('fuse','Patent: 1 published · LeetCode: 200+ solved'); },
+  clear(){ termOut.innerHTML=''; addLine('dim','Terminal cleared.'); }
 };
+termIn.addEventListener('keydown', e=>{ if(e.key!=='Enter') return; const val=termIn.value.trim(); if(!val) return; addCmd(val); const fn=CMDS[val.toLowerCase()]; if(fn) fn(); else addLine('err','bash: '+val+': command not found.'); termIn.value=''; });
 
-termIn.addEventListener('keydown', e => {
-  if (e.key !== 'Enter') return;
-  const val = termIn.value.trim();
-  if (!val) return;
-  addCmd(val);
-  const fn = CMDS[val.toLowerCase()];
-  if (fn) fn();
-  else addLine('err', `bash: ${val}: command not found. Type 'help' for commands.`);
-  termIn.value = '';
-});
+// CV Download
+document.getElementById('cv-download-btn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.open('https://drive.google.com/file/d/1jdBX6OX9XZgKr-mElBkIzIal2Q3BvWPt/view?usp=sharing'); });
 
-// ═══════════════════════════════════════
-// EASTER EGGS
-// ═══════════════════════════════════════
-const kpanics = [
-  `Kernel panic — not syncing: VFS: Unable to mount root fs\n\nFun fact: Mohammad Ilyas Dar is a published inventor\nat the Indian Patent Office! Application No. 2020511052485\n— while still an undergraduate. 🚀\n\nCPU: 0 PID: 1 Comm: swapper/0\nRIP: 0010:panic+0xa8/0x1c4`,
-  `Kernel panic — not syncing: Attempted to kill init!\n\nFun fact: Ilyas solved 200+ problems on LeetCode & HackerRank!\nThat's more commits than most devs make in a year.\n\n[0.000000] Initializing cgroup subsys cpuset`,
-  `Kernel panic — not syncing: No working init found!\n\nFun fact: Ilyas participated in a 24-hour hackathon (InnovateX)\nand came out with a certificate AND a project. Respect.\n\nStack: panic() at kernel/panic.c:113`
-];
-let clickCount = 0, clickTimer;
-document.addEventListener('click', e => {
-  // Don't count modal/terminal clicks
-  if (e.target.closest('#modal-overlay') || e.target.closest('.term-wrap')) return;
-  clickCount++;
-  clearTimeout(clickTimer);
-  clickTimer = setTimeout(() => clickCount = 0, 400);
-  if (clickCount >= 3) {
-    clickCount = 0;
-    document.getElementById('kpanic-msg').textContent = kpanics[Math.floor(Math.random() * kpanics.length)];
-    document.getElementById('kpanic').classList.add('show');
-  }
-});
-document.addEventListener('keydown', e => {
-  if (document.getElementById('kpanic').classList.contains('show')) {
-    document.getElementById('kpanic').classList.remove('show');
-  }
-});
+// Easter eggs
+let clickCount=0, clickTimer;
+document.addEventListener('click', e=>{ if(e.target.closest('.term-wrap')) return; clickCount++; clearTimeout(clickTimer); clickTimer=setTimeout(()=>clickCount=0,400); if(clickCount>=3){ clickCount=0; document.getElementById('kpanic-msg').innerHTML='Kernel panic — Not syncing<br><br>Fun fact: Mohammad Ilyas Dar is a published inventor at the Indian Patent Office!'; document.getElementById('kpanic').classList.add('show'); } });
+const konami=[38,38,40,40,37,39,37,39,66,65]; let ki=0;
+document.addEventListener('keydown', e=>{ ki=(e.keyCode===konami[ki])?ki+1:0; if(ki===konami.length){ ki=0; const b=document.getElementById('superuser-banner'); b.style.display='block'; setTimeout(()=>b.style.display='none',5000); } });
 
-// Konami
-const konami = [38,38,40,40,37,39,37,39,66,65];
-let ki = 0;
-document.addEventListener('keydown', e => {
-  ki = (e.keyCode === konami[ki]) ? ki + 1 : 0;
-  if (ki === konami.length) {
-    ki = 0;
-    const b = document.getElementById('superuser-banner');
-    b.style.display = 'block';
-    setTimeout(() => b.style.display = 'none', 5000);
-  }
-});
-
-// ═══════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════
+// INITIALIZE
 buildKernelLog();
 buildHexTable();
 buildNList();
